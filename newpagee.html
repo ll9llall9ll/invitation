@@ -80,6 +80,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      overflow: visible; /* Ավելացնում է, որ after pseudo element-ը չհամփակվի */
     }
 
     button::after {
@@ -91,6 +92,7 @@
       top: 50%;
       left: 0;
       transition: width 1s ease-in-out;
+      pointer-events: none; /* Հավասարակշռում է, որ կոճակը չկորցնի ֆունկցիոնալությունը */
     }
 
     button.active::after {
@@ -130,7 +132,7 @@
         <h1>Save the Date</h1>
         <h2>HAYK & ANI</h2>
         <div class="button-container">
-          <button id="openBtn">
+          <button id="openBtn" type="button">
             <span>Open Invitation</span>
             <div class="circle-arrow"></div>
           </button>
@@ -141,13 +143,14 @@
 
   <script>
     document.getElementById("openBtn").addEventListener("click", function () {
+      // Եթե արդեն ակտիվ է, մի կատարի կրկին redirect
+      if (this.classList.contains("active")) return;
+
       this.classList.add("active");
       setTimeout(() => {
-        // Բացենք նոր էջ
         window.location.href = "https://ll9llall9ll.github.io/invitation/newpagee.html";
       }, 1000);
     });
   </script>
 </body>
 </html>
-
