@@ -1,86 +1,675 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Invitation Details</title>
+  <html lang="hy">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* Reset */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .audio-icon {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 50px;
+      height: 50px;
+      background-color: #f0f0f0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .audio-icon:hover {
+      background-color: #d9d9d9;
+    }
+
+    .audio-icon i {
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation</title>
+  <meta name="description" content="Join us for the wedding of Lilith and Aram.">
+  <meta name="keywords" content="wedding, invitation, Lilith, Aram, RSVP">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Georgia', serif;
+    }
+    .audio-icon {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.audio-icon:hover {
+  background-color: #d9d9d9;
+}
+
+.audio-icon img {
+  width: 30px; /* Կարգավորեք պատկերին համապատասխան չափը */
+  height: 30px;
+}
+    body {
+      font-family: 'Playfair Display', serif;
+      color: #3e2723;
+      background: linear-gradient(to bottom, #fff5f8, #ffe4e1);
+      background-size: cover;
+      overflow-x: hidden;
     }
 
-    body, html {
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
+      object-fit: cover;
+      z-index: -1;
     }
 
-    /* Centering Container */
-    .container {
-      display: grid;
-      place-items: center;
-      height: 100vh;
-      background-color: #fefaf7;
-    }
-
-    /* Invitation Section */
-    .invitation {
-      position: relative;
-      display: grid;
-      grid-template-rows: auto;
-      justify-items: center;
-      background: url('your-second-background.jpg') center/cover no-repeat;
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      max-width: 900px;
-      max-height: 600px;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      background: rgba(255, 245, 250, 0.85);
+      z-index: 1;
     }
 
-    /* Content Styling */
     .content {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      background-color: rgba(0, 0, 0, 0.4);
-      color: white;
-      width: 100%;
-      height: 100%;
       padding: 20px;
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
+      font-size: 4rem;
+      color: #684a56;
+      margin-bottom: 20px;
+      animation: fadeInDown 1.5s ease;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
 
-    h2, p {
+    h2 {
+      font-size: 2.2rem;
+      color: #684a56;
+      margin-bottom: 40px;
+      animation: fadeInUp 1.5s ease;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .image-gallery img {
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      width: 220px;
+      height: 320px;
+      object-fit: cover;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .image-gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Countdown Styles */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.2rem;
+      color: #684a56;
+      padding: 10px 25px;
+      border-radius: 25px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 1.5s ease;
+    }
+
+    .countdown div {
+      margin: 0 15px;
+      text-align: center;
+    }
+
+    .countdown span {
+      display: block;
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    .countdown div:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+    .image-gallery {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+  .image-gallery img {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .image-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+    /* Timing Section Styles */
+    .timing-section {
+      background-color: #f8f4f4;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .timing-title {
+      font-size: 1.5rem;
+      color: #684a56;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .timing-details {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .timing-item {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .timing-item:hover {
+      transform: scale(1.05);
+    }
+
+    .timing-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    .timing-item div {
+      font-size: 1.1rem;
+      color: #684a56;
+      font-weight: 500;
+    }
+
+    .timing-item strong {
+      color: #9a878f;
+    }
+
+    /* Footer Section */
+    .footer {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      color: #684a56;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* RSVP Section */
+    .rsvp {
+  margin-top: 40px;
+  background: #e4d9dd;
+  padding: 30px;
+  border-radius: 15px;
+  border: 2px solid #684a56;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  animation: fadeIn 1.5s ease;
+}
+
+.rsvp h3 {
+  font-size: 2rem;
+  color: #684a56;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.rsvp form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.rsvp input, .rsvp select {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #e4d9dd;
+  border-radius: 5px;
+  background: #fff;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.rsvp input:focus, .rsvp select:focus {
+  box-shadow: 0 0 10px rgba(150, 105, 130, 0.5);
+  transform: scale(1.02);
+  outline: none;
+}
+
+.rsvp button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  background: #684a56;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.rsvp button:hover {
+  background: #722141;
+  transform: scale(1.05);
+}
+    /* Keyframes */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .location-section {
+    margin-top: 50px;
+    padding: 40px;
+    background: #faf2f2;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 80%;
+    transition: transform 0.3s ease;
+    animation: fadeInUp 1.5s ease;
+  }
+
+  .location-section:hover {
+    transform: scale(1.05);
+  }
+
+  .location-title {
+    font-size: 2.5rem;
+    color: #5e3c46;
+    margin-bottom: 40px;
+    font-weight: 100;
+    text-transform: uppercase;
+  }
+
+  .location-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 30px;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-wrap: wrap;
+  }
+
+  .location-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .location-icon {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease;
+  }
+
+  .location-icon:hover {
+    transform: rotate(360deg);
+  }
+
+  .location-text {
+    font-size: 1.5rem;
+    color: #5e3c46;
+    font-weight: 500;
+  }
+
+  .map-button {
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .map-link {
+    display: inline-block;
+    padding: 10px 10px;
+    background-color: #684a56;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .map-link:hover {
+    background-color: #722141;
+    transform: scale(1.05);
+  }
+  .announcement-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8); /* Light background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(252, 249, 249, 0.948);
+}
+
+.announcement-text {
+  font-family: 'Arial', sans-serif;
+  color: #4A4A4A;
+  font-size: 20px;
+  text-align: center;
+  padding: 20px;
+  background-color: #fbfbfb;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(255, 254, 254, 0.1);
+  margin-top: 40px;
+}
+
+.announcement-text strong {
+  font-size: 24px;
+  color: #684a56; /* Matching green tone for announcement */
+}
+
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .location-section {
+      width: 90%;
+      padding: 20px;
+    }
+
+    .location-title {
+      font-size: 2rem;
+    }
+
+    .location-item {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .location-text {
+      font-size: 1.2rem;
+    }
+
+    .map-link {
+      font-size: 1rem;
+      padding: 8px 15px;
+    }
+
+    .location-icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .location-section {
+      width: 95%;
+      padding: 15px;
+    }
+
+    .location-title {
       font-size: 1.8rem;
-      font-weight: 300;
-      margin-bottom: 1rem;
     }
 
-    /* Օրինակ կարող ես կոճակ էլ ավելացնել, եթե ուզում ես */
+    .location-text {
+      font-size: 1rem;
+    }
+
+    .map-link {
+      font-size: 0.9rem;
+      padding: 8px 10px;
+    }
+
+    .location-icon {
+      width: 35px;
+      height: 35px;
+    }
+  }
+</style>
+</style>
+  </style>
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="invitation">
-      <div class="content">
-        <h1>You're invited to the wedding of Hayk & Ani</h1>
-        <p>Date: August 20, 2025</p>
-        <p>Location: Cascade Complex, Yerevan</p>
-        <p>We look forward to celebrating with you!</p>
+  <!-- Video Background -->
+  <video class="video-bg" autoplay loop muted>
+    <source src="C:\Users\HP STAR WARS\Downloads\e6057d26-9d4c-423a-ab14-2ec2105f522c (1).mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Overlay -->
+  <div class="overlay"></div>
+
+  <!-- Content -->
+  <div class="content">
+    <p>09.01.2025</p>
+    <h1>Հայկ & Անի</h1>
+    <h2>Հարգելի՛ հյուրեր</h2>
+    <h2>Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր ամուսնության արարողությանը:</h2>
+
+    <h2>Մնացել է․․․</h2>
+    <!-- Countdown Timer -->
+    <div class="countdown" id="countdown">
+      <div><span id="days"></span> Օր</div>
+      <div><span id="hours"></span> Ժամ</div>
+      <div><span id="minutes"></span> Րոպե</div>
+      <div><span id="seconds"></span> Վայրկյան</div>
+    </div>
+    <div class="image-gallery">
+      <img src="C:\Users\HP STAR WARS\Desktop\Новая папка (2)\e93df080-bc92-45c4-9b1f-4ddc494bc0d8.jfif" alt="Image 1">
+      <img src="C:\Users\HP STAR WARS\Desktop\Новая папка (2)\c1ed5c0a-99d6-44f1-81b4-a222074786c4.jfif" alt="Image 1">
+      <img src="C:\Users\HP STAR WARS\Desktop\Новая папка (2)\e0cf9fe0-955b-4636-a904-52b234ab4f74.jfif" alt="Image 1">
+    </div>
+    <!-- Timing Section -->
+    <div class="timing-section">
+      <div class="timing-title">ժամանակացույց</div>
+      <div class="timing-details">
+        <div class="timing-item">
+          <img src="c:\Users\HP STAR WARS\Desktop\Новая папка (3)\icons8-heart-64 — копия.png" alt="Start Icon" class="timing-icon">
+          <div><strong>Պսակադրության Արարողություն|</strong> 12:00 </div>
+        </div>
+        <div class="timing-item">
+          <img src="c:\Users\HP STAR WARS\Desktop\Новая папка (3)\icons8-rings-64.png" alt="Ceremony Icon" class="timing-icon">
+          <div><strong>Հյուրերի Դիմավորում|</strong> 15:30 </div>
+        </div>
+        <div class="timing-item">
+          <img src="c:\Users\HP STAR WARS\Desktop\Новая папка (3)\icons8-birthday-cake-64.png" alt="Cake Icon" class="timing-icon">
+          <div><strong>Հարսանեկան Խնջույք|</strong> 18:00 </div>
+        </div>
+        <div class="timing-item">
+          <img src="c:\Users\HP STAR WARS\Desktop\Новая папка (3)\icons8-heart-64 — копия.png" alt="End Icon" class="timing-icon">
+          <div><strong>Ավարտ|</strong> 23:00 </div>
+        </div>
       </div>
     </div>
+
+    <div class="announcement-text">
+      <strong>ՁԵՐ ՀԱՐՄԱՐՈՒԹՅԱՆ ՀԱՄԱՐ ՄԵՆՔ ՊԱՏՐԱՍՏԵԼ ԵՆՔ ՔԱՐՏԵԶ</strong>
+    </div>
+
+    <div class="location-section">
+      <div class="location-title"></div>
+      <div class="location-item">
+        <img src="c:\Users\HP STAR WARS\Desktop\Новая папка (3)\icons8-church-64.png" alt="Church Icon" class="location-icon">
+        <div class="location-text"><strong>Տաճար</strong><br>Սուրբ Խաչ Եկեղեցի</div>
+        <div class="location-text"><strong>12։00</strong><br></div>
+        <div class="map-button">
+          <a href="https://maps.app.goo.gl/bXuhksPx9PmMABzt8" target="_blank" class="map-link">Քարտեզ</a>
+        </div>
+      </div>
+      <div class="location-item">
+        <img src="c:\Users\HP STAR WARS\Desktop\Новая папка (3)\icons8-restaurant-building-48.png" alt="Restaurant Icon" class="location-icon">
+        <div class="location-text"><strong>Ռեստորան</strong><br>Նոր Դվին Ռեստորանային Համալիր</div>
+        <div class="location-text"><strong>18։00</strong><br></div>
+
+        <div class="map-button">
+          <a href="https://maps.app.goo.gl/ham6HB6mWqPy2VQF6" target="_blank" class="map-link">Քարտեզ</a>
+        </div> 
+      </div>
+    </div>
+
+    <!-- RSVP Section -->
+    <div class="rsvp">
+      <h3>Հարցաթերթիկ ♡</h3>
+      <form>
+        <input type="text" placeholder="Անուն Ազգանուն" required>
+        <input type="number" placeholder="Հյուրերի քանակը" min="1" required>
+        <select required>
+          <option value="" disabled selected>Կկարողանա՞ք ներկա գտնվել 
+          </option>
+          <option value="yes">Այո, մեծ սիրով</option>
+          <option value="no">Ոչ, ցավոք չեմ կարող</option>
+          <option value="yes">Կտեղեկացնեմ ավելի ուշ</option>
+        </select>
+        <button type="submit">Հաստատել</button>
+      </form>
+    </div>
+    <h1>ՍԻՐՈՎ ԿՍՊԱՍԵՆՔ ՁԵԶ</h1>
+    <h3>Save the Date: January 9, 2025</h3>
+
+  <script>
+    // Countdown Timer
+    const weddingDate = new Date('2025-01-09T17:00:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const timeLeft = weddingDate - now;
+
+      if (timeLeft < 0) {
+        document.getElementById('countdown').textContent = "The wedding has started!";
+        return;
+      }
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+  <audio id="background-music" autoplay loop>
+    <source src="c:\Users\HP STAR WARS\Desktop\beyonce-halo_(muzzona.kz).mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+  
+  <audio id="background-music" autoplay loop>
+    <source src="C:\path\to\your\audio\file.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+  <div class="audio-icon">
+    <img src="c:\Users\HP STAR WARS\Desktop\icons8-audio-50 (1).png" alt="Audio Icon">
   </div>
+  <!-- Audio Icon Button -->
+  <div class="audio-icon" onclick="toggleAudio()">
+    <i class="fas fa-music"></i>
+  </div>
+  
+  <script>
+    // Function to toggle the audio on and off
+    function toggleAudio() {
+      const audio = document.getElementById('background-music');
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+  </script>
 </body>
 </html>
 
